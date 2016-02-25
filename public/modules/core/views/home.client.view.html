@@ -1,94 +1,157 @@
 <section data-ng-controller="HomeController">
-	<div class="jumbotron text-center">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
-			</div>
+
+	<div class="panel panel-default" style="margin-top: 50px;">
+
+		<div class="panel-heading">
+
+			<h3 class="panel-title">The purpose of this site is to train with Karma.js.</h3>
+
 		</div>
-		<br>
-		<div class="row">
-			<p class="lead">
-				Open-Source Full-Stack Solution For MEAN Applications
-			</p>
-		</div>
-		<div class="row">
-			<p>
-				<a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Learn more</a>
-			</p>
-		</div>
-	</div>
-	<div>
-		<h2>Congrats! You've configured and run the sample application.</h2>
-		<p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>
-		<p>This sample application tracks users and articles.</p>
-		<ul>
-			<li>
-				Click
-				<em>Signup</em>
-				to get started.
-			</li>
-			<li>
-				Configure your app to work with your social accounts, by editing the
-				<em>/config/env/*.js</em>
-				files.
-			</li>
-			<li>
-				Edit your users module.
-			</li>
-			<li>
-				Add new CRUD modules.
-			</li>
-			<li>
-				Have fun...
-			</li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<h2>
-				<strong>M</strong>ongoDB
-			</h2>
-			<p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>E</strong>xpress
-			</h2>
-			<p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/guide.html">The Express Guide</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>A</strong>ngularJS
-			</h2>
-			<p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's website</a> offers a lot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>N</strong>ode.js
-			</h2>
-			<p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>
-		</div>
-	</div>
-	<div class="well">
-		<h2>MEAN.JS Documentation</h2>
-		<p>
-			Once you're familiar with the foundation technology, check out the MEAN.JS Documentation:
-			<ul>
-				<li><a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>
+
+
+		<div class="panel-body">
+
+			<p><b>Installation of Mean.js:</b></p>
+			<ol  style="margin-left: 20px;">
+				<li>Make sure the proper yeoman generator is installed globally. If not,
+					<code>npm install -g generator-meanjs</code>.</li>
+				<li>Go to the project's folder.</li>
+				<li>Install mean.js by entering <code>yo meanjs</code></li>
+				<li>Select not to create CRUD functionality, we'll do it later.</li>
+				<li>Important: the name of the app determines the name of the db, so do not name two apps with the same
+					name because they will use the same database.</li>
+				<li>Other questions: the defaults can work fine.</li>
+				<li>Run <code>mongod</code> in a secondary terminal window.</li>
+				<li>Launch the site entering <code>grunt</code></li>
+				<li>Initial commit with git</li>
+				<li>Push to github (if error: open .git/config and change https by ssh://git@github.com)</li>
+				<li>Sign up in the new site.</li>
+				<li>app folder: server files (node, express, mongo).</li>
+				<li>public folder: client files (AngularJS).</li>
+				<li>config/env/development: link to the database.</li>
+				<li>To add a crud module, we use yeoman sub-generators: <code>yo meanjs: crud-module moduleName</code></li>
+				<li>Other sub-generators: http://meanjs.org/generator.html</li>
+				<li>Generate CRUD module: <code>yo meanjs:crud-module need</code>. Good practice: use a singular word to
+					name the module. Meanjs will pluralize it in the foldrer structure. This command generates the server
+					and client files necessary to configure a CRUD module. They have default values, we will have
+					to customize them.</li>
+			</ol>
+
+
+			<br><p><b>Initial settings for our custom theme.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>Meanjs uses the SWIG view engine for the server side views. We can see that in action in app/views.
+					The swig documentation can be found here: http://paularmstrong.github.io/swig/</li>
+				<li>app/views/layout.server.view.html is the main layout of the app.</li>
+				<li>The main css file is public/modules/core/css/core.css</li>
+				<li>The individual css files associated with our individual modules can be found here:
+					config/env/all.js</li>
+				<li>Create public/theme to include the custom css of our theme.</li>
+				<li>We can find interesting free themes in <a href="http://www.bootstrapzero.com" target="_blank">
+					bootstrapzero.com</a>. Download all the asset files of the selected theme in our custom public/theme
+					folder.</li>
+				<li>Update the css source in config/env/all.js: add links to the files of the custom theme in
+					assets.lib.css, assets.css and assets.js </li>
+			</ol>
+
+			<br><p><b>Initial settings of our database schema.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>We can see the default schema generated by the crud-module subgenerator in app/models/need.server.model.js</li>
+				<li>We will need to customize this schema in order to adapt it to the needs of our app.</li>
+				<li>If we customize the schema, we will need to change the Angular files that create and update the
+					database items. The controller: public/modules/needs/controllers/needs.client.controller.js and the views:
+					public/modules/needs/views/*</li>
+
+			</ol>
+
+			<br><p><b>Initial settings of our views and controllers.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>Home page template: customize public/modules/core/views/home.client.view.html</li>
+			</ol>
+
+			<br><p><b>Server-side testing.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>We play the configured tests running <code>grunt test</code></li>
+				<li>Meanjs uses a separate db for testing. It is referred in
+					config/env/test.js</li>
+				<li>Meanjs uses mocha and the should.js assertion library to run server-side tests.</li>
+				<li>More info on should.js here: https://github.com/shouldjs/should.js</li>
+				<li>If we have a custom db schema, we will have to review the
+					test definitions in order to update all data referred to our
+					custom schema.</li>
+			</ol>
+
+			<br><p><b>Client-side testing.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>The tests generated for our custom crud module are located in
+					public/modules/items/tests</li>
+
+			</ol>
+
+			<br><p><b>Build Manager Tasks</b></p>
+			<ol style="margin-left: 20px">
+				<li>Meanjs is configured to work with grunt, but can be used with
+					gulp as well.</li>
+				<li>The main task of the Build Manager is <code>grunt build</code>. It
+					runs a number of actions:</li>
+				<ul>
+					<li>lint: runs jslint and csslint</li>
+					<li>loadconfig: tells grunt where to put the minified js and css files.</li>
+					<li>ngAnnotate: rebuilds the angularjs dependency injections and annotations</li>
+					<li>uglify: minify js files.</li>
+					<li>cssmin: minify css files.</li>
+				</ul>
+				<li>The files that will be minified are defined by the grunt task "loadconfig",
+					check the description of that task to see what files are selected (basically,
+					config.assets.js and config.assets.css
 				</li>
-				<li><a target="_blank" href="http://meanjs.org/generator.html">Yeoman Generator</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/modules.html">Modules</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/changelog.html">Changelog</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/community.html">Community</a>
-				</li>
-				<li><a target="_blank" href="http://blog.meanjs.org">Blog</a>
-				</li>
+			</ol>
+
+			<br><p><b>From Development to Production environment.</b></p>
+			<ol style="margin-left: 20px;">
+				<li>config/env/production.js : production configuration file. Important contents:</li>
+				<ul>
+					<li>production db configuration: change with the data of mongolab.com
+						or other alternatives.</li>
+					<li>Hosting options: heroku (free), openshift (free, custom domains),
+						digitalocean (not free), microsoft azure, modulus, joyent.</li>
+					<li>Heroku steps:</li>
+					<ol>
+						<li>If it is not installed in our computer, we'll need to
+							install toolbelt.heroku.com</li>
+						<li>Run <code>heroku create</code> to create the new app.</li>
+						<li>Run <code>git push heroku master</code> to upload the repository.</li>
+						<li>Run <code>heroku config:set NODE_ENV=production</code></li>
+						<li>Run <code>heroku open</code></li>
+					</ol>
+				</ul>
+			</ol>
+
+			<br><p><b>Useful tools and tips.</b></p>
+			<ul style="margin-left: 20px;">
+				<li>Deployment tools:</li>
+				<ul>
+					<li>Flightplan: automating tasks. https://github.com/pstadler/flightplan</li>
+					<li>Codeship (codeship.com): continuous delivery tool.</li>
+				</ul>
+
+				<li>MongoDB tools</li>
+				<ul>
+					<li>3t.io/products -> mongochef and other products.</li>
+					<li>Robomongo</li>
+				</ul>
 			</ul>
-		</p>
+
+
+
+
+
+
+		</div>
+
+		<a href="#!/items" class="btn btn-default" style="margin: 10px;">View Current Items</a>
+		<a href="https://aqueous-ocean-93309.herokuapp.com/#!/" class="btn btn-default" style="margin: 10px;">View Heroku Site</a>
+
 	</div>
-	<br>Enjoy &amp; Keep Us Updated,
-	<br>The MEAN.JS Team.
+
 </section>
