@@ -174,4 +174,7 @@ module.exports = function(grunt) {
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+
+	// Custom: run just client-side tests.
+	grunt.registerTask('testclient', ['env:test', 'karma:unit']);
 };
