@@ -14,7 +14,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).
 		state('testingControllers', {
 			url: '/testing-controllers',
-			templateUrl: 'modules/core/views/testing-controllers.client.view.html'
+			templateUrl: 'modules/karmaTraining/views/testing-controllers.client.view.html'
 		});
 	}
 ]);
