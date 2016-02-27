@@ -3,6 +3,31 @@
         <h3 class="panel-title">Testing Controllers</h3>
     </div>
     <div class="panel-body">
-        This is coming from the controller: {{palabra}}
+
+        <p>This is coming from the controller: {{palabra}}</p>
+
+        <br><p><b>Basic parts of a test:</b></p>
+        <ol style="margin-left: 20px;">
+            <li>describe('name', callback)</li>
+            <li>it('should...', callback)</li>
+            <li>expect(x).toBe()</li>
+        </ol>
+
+        <br><p><b>Common steps before running a controller test:</b></p>
+        <ol style="margin-left: 20px;">
+            <li>Load the module that contains the controller tested:
+                <code>beforeEach(module('moduleName'));</code></li>
+            <li>Use inject to access _$controller_, the service that is responsible
+            for instantiating controllers:
+            <code>beforeEach(inject(_$controller_)</code></li>
+            <li>We assign _$controller_ to the new variable $controller.</li>
+            <li>We create the scope object: <code>var scope = {}</code></li>
+            <li>We create an instance of the controller and assign value to its parameters:
+            <code>var ControllerName = $controller('ControllerName', {$scope: scope})</code></li>
+            <li>We assign the scope model (data).</li>
+            <li>Using assertions, we start testing scope variables and functions.</li>
+        </ol>
+
+
     </div>
 </div>
