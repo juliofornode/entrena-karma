@@ -2,26 +2,48 @@
 
     "use strict";
 
-    describe('ControllerTestingControllers', function () {
+    describe('testing ControllerTestingControllers', function () {
 
-        beforeEach(module('karmaTraining'));
 
         var $controller;
 
-        beforeEach(inject(function(_$controller_){
-            // The injector unwraps the underscores (_) from around the parameter
-            // names when matching
+        //instantiate module
+        beforeEach(module('karmaTraining'));
+
+        //inject _$controller_ service to instantiate controller
+        beforeEach(inject(function (_$controller_) {
             $controller = _$controller_;
         }));
 
-        it('should give us the palabra', function () {
-
+        beforeEach(function () {
+            //instantiate controller
             var scope = {};
-            var controller = $controller('ControllerTestingControllers', { $scope: scope });
-            expect(scope.palabra).toBe("Caraculo");
+            var ControllerTestingControllers = $controller('ControllerTestingControllers', {$scope: scope});
+
+        });
+
+        //more simple alternative
+        /*
+         var scope;
+
+        beforeEach(inject(function($rootScope, $controller) {
+            scope = $rootScope.$new();
+            $controller('MyController', {$scope: scope});
+        }));
+        */
+
+
+        it('should return the right model', function () {
+
+
+
+            expect(scope.palabra).toBe('Caraculo');
+
 
         })
 
+
     })
+
 
 }());
